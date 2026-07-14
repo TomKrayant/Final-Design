@@ -1,0 +1,261 @@
+/* pages/statis/statis.wxss */
+.statis-page {
+  min-height: 100vh;
+  padding: 24rpx 24rpx 40rpx;
+  background: linear-gradient(180deg, #eef7f4 0%, #f7fbfa 52%, #f2f6f5 100%);
+  box-sizing: border-box;
+}
+
+.hero-card {
+  padding: 32rpx 28rpx;
+  border-radius: 32rpx;
+  background: linear-gradient(135deg, #1f5f5b 0%, #3b8b7f 100%);
+  color: #ffffff;
+  box-shadow: 0 18rpx 36rpx rgba(31, 95, 91, 0.18);
+}
+
+.hero-eyebrow {
+  display: block;
+  font-size: 24rpx;
+  opacity: 0.86;
+}
+
+.hero-title {
+  display: block;
+  margin-top: 12rpx;
+  font-size: 42rpx;
+  font-weight: 700;
+}
+
+.hero-desc {
+  display: block;
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  line-height: 1.7;
+  opacity: 0.92;
+}
+
+.summary-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 18rpx;
+  margin-top: 24rpx;
+}
+
+.summary-card {
+  flex: 1;
+  padding: 24rpx 20rpx;
+  border-radius: 26rpx;
+  background: #ffffff;
+  box-shadow: 0 12rpx 28rpx rgba(25, 46, 44, 0.08);
+}
+
+.summary-title {
+  display: block;
+  color: #71817e;
+  font-size: 22rpx;
+}
+
+.summary-value {
+  display: block;
+  margin-top: 14rpx;
+  color: #1d2f2d;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.summary-desc {
+  display: block;
+  margin-top: 10rpx;
+  color: #8a9694;
+  font-size: 20rpx;
+  line-height: 1.5;
+}
+
+.chart-section {
+  margin-top: 24rpx;
+}
+
+.chart-card,
+.record-card {
+  margin-top: 20rpx;
+  padding: 24rpx;
+  border-radius: 28rpx;
+  background: #ffffff;
+  box-shadow: 0 12rpx 28rpx rgba(25, 46, 44, 0.08);
+}
+
+.chart-card:first-child {
+  margin-top: 0;
+}
+
+.chart-head,
+.record-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20rpx;
+  margin-bottom: 18rpx;
+}
+
+.chart-title,
+.record-title {
+  display: block;
+  color: #203230;
+  font-size: 30rpx;
+  font-weight: 700;
+}
+
+.chart-desc,
+.record-date {
+  display: block;
+  margin-top: 10rpx;
+  color: #7b8b88;
+  font-size: 22rpx;
+}
+
+.chart-range,
+.record-chip {
+  flex-shrink: 0;
+  padding: 10rpx 16rpx;
+  border-radius: 999rpx;
+  background: #edf6f3;
+  color: #1f5f5b;
+  font-size: 20rpx;
+}
+
+ec-canvas {
+  display: block;
+  width: 100%;
+  height: 420rpx;
+}
+
+.detail-card {
+  margin-top: 24rpx;
+  padding: 26rpx 24rpx;
+  border-radius: 24rpx;
+  background: #f7faf9;
+}
+
+.chart-detail-card {
+  box-shadow: none;
+}
+
+.detail-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detail-title {
+  color: #203230;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.detail-tag {
+  padding: 8rpx 16rpx;
+  border-radius: 999rpx;
+  font-size: 20rpx;
+}
+
+.detail-tag-warning {
+  background: #fff1ea;
+  color: #eb6e42;
+}
+
+.detail-tag-normal {
+  background: #edf6f3;
+  color: #1f5f5b;
+}
+
+.detail-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 16rpx;
+  margin-top: 22rpx;
+}
+
+.detail-item {
+  flex: 1;
+  padding: 20rpx;
+  border-radius: 22rpx;
+  background: #ffffff;
+}
+
+.detail-label {
+  display: block;
+  color: #7a8a87;
+  font-size: 21rpx;
+}
+
+.detail-value {
+  display: block;
+  margin-top: 10rpx;
+  color: #1d302d;
+  font-size: 26rpx;
+  font-weight: 700;
+}
+
+.detail-desc {
+  display: block;
+  margin-top: 20rpx;
+  color: #667874;
+  font-size: 24rpx;
+  line-height: 1.7;
+}
+
+.record-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18rpx;
+}
+
+.record-item {
+  padding: 22rpx;
+  border-radius: 24rpx;
+  background: #f7faf9;
+}
+
+.record-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.record-metric {
+  color: #203230;
+  font-size: 26rpx;
+  font-weight: 700;
+}
+
+.record-level {
+  padding: 6rpx 14rpx;
+  border-radius: 999rpx;
+  background: #fff1ea;
+  color: #eb6e42;
+  font-size: 20rpx;
+}
+
+.record-time {
+  display: block;
+  margin-top: 12rpx;
+  color: #6f817d;
+  font-size: 22rpx;
+}
+
+.record-value {
+  display: block;
+  margin-top: 8rpx;
+  color: #1d302d;
+  font-size: 28rpx;
+  font-weight: 700;
+}
+
+.record-detail {
+  display: block;
+  margin-top: 10rpx;
+  color: #70817d;
+  font-size: 23rpx;
+  line-height: 1.6;
+}
