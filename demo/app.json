@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/login/login",
+    "pages/statis/statis",
+    "pages/user/user"
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "宠物健康监测系统",
+    "navigationBarBackgroundColor": "#1f5f5b"
+  },
+  "tabBar": {
+    "selectedColor": "#1f5f5b",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "主页",
+        "iconPath": "img/home.png",
+        "selectedIconPath": "img/home_s.png"
+      },
+      {
+        "pagePath": "pages/statis/statis",
+        "text": "统计",
+        "iconPath": "img/sta.png",
+        "selectedIconPath": "img/sta_s.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "img/my.png",
+        "selectedIconPath": "img/my_s.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}
