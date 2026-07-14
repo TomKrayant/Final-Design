@@ -1,2 +1,22 @@
 <!--pages/login/login.wxml-->
-<text selectable>pages/login/login.wxml</text>
+<view class="login-page">
+<!--------------顶部欢迎卡片--------------->
+  <view class="login-hero">
+    <text class="hero-eyebrow">宠物健康监测系统</text>
+    <text class="hero-title">微信授权登录</text>
+    <text class="hero-desc">首次进入小程序时，点击下方按钮即可完成微信授权登录。</text>
+  </view>
+
+<!--------------登录卡片--------------->
+  <view class="login-card">
+    <image class="login-image" src="/img/pet.png" mode="aspectFill"></image>
+    <text class="login-title">欢迎进入宠物健康监测</text>
+    <text class="login-desc">登录后可查看宠物实时监测数据、统计图表与位置信息。</text>
+
+    <button class="login-btn" bindtap="handleWechatLogin" loading="{{loading}}">
+      微信授权登录
+    </button>
+
+    
+  </view>
+</view>

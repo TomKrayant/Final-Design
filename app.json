@@ -2,8 +2,6 @@
   "pages": [
     "pages/home/home",
     "pages/login/login",
-    "pages/index/index",
-    "pages/regist/regist",
     "pages/statis/statis",
     "pages/user/user"
   ],

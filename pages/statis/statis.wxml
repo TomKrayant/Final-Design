@@ -1,2 +1,140 @@
 <!--pages/statis/statis.wxml-->
-<text>pages/statis/statis.wxml</text>
+<view class="statis-page">
+<!--------------顶部总卡片--------------->
+  <view class="hero-card">
+    <text class="hero-eyebrow">健康趋势统计</text>
+    <text class="hero-title">宠物监测图表</text>
+    <text class="hero-desc">主页持续采集实时数据，统计页按5分钟汇总展示当天趋势，并记录异常点位信息。</text>
+  </view>
+
+<!--------------顶部统计卡片--------------->
+  <view class="summary-grid">
+    <view class="summary-card" wx:for="{{statCards}}" wx:key="title">
+      <text class="summary-title">{{item.title}}</text>
+      <text class="summary-value">{{item.value}}</text>
+      <text class="summary-desc">{{item.desc}}</text>
+    </view>
+  </view>
+
+<!--------------趋势图表区域--------------->
+  <view class="chart-section">
+<!--------------心率趋势图卡片--------------->
+    <view class="chart-card">
+      <view class="chart-head">
+        <view>
+          <text class="chart-title">{{chartCards[0].title}}</text>
+          <text class="chart-desc">{{chartCards[0].desc}}</text>
+        </view>
+        <text class="chart-range">{{chartCards[0].range}}</text>
+      </view>
+      <ec-canvas id="heart-chart" canvas-id="heart-chart" ec="{{heartRateEc}}"></ec-canvas>
+<!--------------心率点位详情--------------->
+      <view class="detail-card chart-detail-card">
+        <view class="detail-head">
+          <text class="detail-title">心率点位详情</text>
+          <text class="detail-tag {{heartRateDetail.statusClass}}">{{heartRateDetail.status}}</text>
+        </view>
+        <view class="detail-grid">
+          <view class="detail-item">
+            <text class="detail-label">时间</text>
+            <text class="detail-value">{{heartRateDetail.time}}</text>
+          </view>
+          <view class="detail-item">
+            <text class="detail-label">数值</text>
+            <text class="detail-value">{{heartRateDetail.value}}</text>
+          </view>
+        </view>
+        <text class="detail-desc">{{heartRateDetail.detail}}</text>
+      </view>
+    </view>
+
+<!--------------血氧趋势图卡片--------------->
+    <view class="chart-card">
+      <view class="chart-head">
+        <view>
+          <text class="chart-title">{{chartCards[1].title}}</text>
+          <text class="chart-desc">{{chartCards[1].desc}}</text>
+        </view>
+        <text class="chart-range">{{chartCards[1].range}}</text>
+      </view>
+      <ec-canvas id="oxygen-chart" canvas-id="oxygen-chart" ec="{{bloodOxygenEc}}"></ec-canvas>
+<!--------------血氧点位详情--------------->
+      <view class="detail-card chart-detail-card">
+        <view class="detail-head">
+          <text class="detail-title">血氧点位详情</text>
+          <text class="detail-tag {{bloodOxygenDetail.statusClass}}">{{bloodOxygenDetail.status}}</text>
+        </view>
+        <view class="detail-grid">
+          <view class="detail-item">
+            <text class="detail-label">时间</text>
+            <text class="detail-value">{{bloodOxygenDetail.time}}</text>
+          </view>
+          <view class="detail-item">
+            <text class="detail-label">数值</text>
+            <text class="detail-value">{{bloodOxygenDetail.value}}</text>
+          </view>
+        </view>
+        <text class="detail-desc">{{bloodOxygenDetail.detail}}</text>
+      </view>
+    </view>
+
+<!--------------体温趋势图卡片--------------->
+    <view class="chart-card">
+      <view class="chart-head">
+        <view>
+          <text class="chart-title">{{chartCards[2].title}}</text>
+          <text class="chart-desc">{{chartCards[2].desc}}</text>
+        </view>
+        <text class="chart-range">{{chartCards[2].range}}</text>
+      </view>
+      <ec-canvas id="temperature-chart" canvas-id="temperature-chart" ec="{{bodyTemperatureEc}}"></ec-canvas>
+<!--------------体温点位详情--------------->
+      <view class="detail-card chart-detail-card">
+        <view class="detail-head">
+          <text class="detail-title">体温点位详情</text>
+          <text class="detail-tag {{bodyTemperatureDetail.statusClass}}">{{bodyTemperatureDetail.status}}</text>
+        </view>
+        <view class="detail-grid">
+          <view class="detail-item">
+            <text class="detail-label">时间</text>
+            <text class="detail-value">{{bodyTemperatureDetail.time}}</text>
+          </view>
+          <view class="detail-item">
+            <text class="detail-label">数值</text>
+            <text class="detail-value">{{bodyTemperatureDetail.value}}</text>
+          </view>
+        </view>
+        <text class="detail-desc">{{bodyTemperatureDetail.detail}}</text>
+      </view>
+    </view>
+  </view>
+
+<!--------------当日异常记录--------------->
+  <view class="record-card">
+    <view class="record-head">
+      <view>
+        <text class="record-title">当日异常点位记录</text>
+        <text class="record-date">{{recordDateLabel}}</text>
+      </view>
+      <view class="record-chip">次日自动清空</view>
+    </view>
+
+<!--------------异常点位列表--------------->
+    <view class="record-list" wx:if="{{anomalyRecords.length}}">
+      <view class="record-item" wx:for="{{anomalyRecords}}" wx:key="id">
+        <view class="record-top">
+          <text class="record-metric">{{item.metric}}</text>
+          <text class="record-level">{{item.level}}</text>
+        </view>
+        <text class="record-time">{{item.time}}</text>
+        <text class="record-value">{{item.value}}</text>
+        <text class="record-detail">{{item.detail}}</text>
+      </view>
+    </view>
+
+<!--------------空状态提示--------------->
+    <view class="detail-card" wx:else>
+      <text class="detail-desc">当前还没有记录到当日异常点位，继续在主页运行监测后这里会自动更新。</text>
+    </view>
+  </view>
+</view>

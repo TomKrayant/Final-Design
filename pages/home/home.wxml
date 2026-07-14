@@ -1,74 +1,114 @@
 <!--pages/home/home.wxml-->
 <view class="home-page">
-<!--------------头顶总卡片------------------>
+<!--------------顶部总卡片--------------->
   <view class="hero-card">
   <!--------------宠物信息卡片------------------>
     <view class="hero-copy">
       <text class="hero-eyebrow">宠物健康监测</text>
       <text class="hero-title">{{petProfile.name}}</text>
-      <text class="hero-subtitle">{{petProfile.type}} / {{petProfile.status}}</text>
+
+      <view class="hero-profile">
+        <view class="hero-profile-item">
+          <text class="hero-profile-label">品种</text>
+          <text class="hero-profile-value">{{petProfile.type}}</text>
+        </view>
+        <view class="hero-profile-item">
+          <text class="hero-profile-label">性别</text>
+          <text class="hero-profile-value">{{petProfile.gender}}</text>
+        </view>
+        <view class="hero-profile-item">
+          <text class="hero-profile-label">年龄</text>
+          <text class="hero-profile-value">{{petProfile.age}}</text>
+        </view>
+        <view class="hero-profile-item">
+          <text class="hero-profile-label">体重</text>
+          <text class="hero-profile-value">{{petProfile.weight}}</text>
+        </view>
+      </view>
+
       <view class="hero-status">
         <text class="status-dot"></text>
-        <text class="status-text">实时连接中</text>
+        <text class="status-text">{{petProfile.status}}</text>
       </view>
     </view>
     <image class="hero-image" src="{{petProfile.avatar}}" mode="aspectFill"></image>
   </view>
-<!--------------宠物指标总卡片------------------>
+
+<!--------------宠物指标总卡片--------------->
   <view class="section">
     <view class="section-head">
       <text class="section-title">核心指标</text>
-      <text class="section-desc">后续可直接替换为接口数据</text>
     </view>
-    <!--------------渲染列表卡片------------------>
     <view class="metrics-list">
-    <!-----------wx:for，wx:key循环渲染数组------------->
       <view class="metric-card" wx:for="{{metrics}}" wx:key="key">
         <view class="metric-il">
           <text class="metric-label">{{item.label}}</text>
           <view class="metric-icon">{{item.icon}}</view>
         </view>
-        <view class="metric-value-row">
-            <text class="metric-value">{{item.value}}</text>
-            <text class="metric-unit">{{item.unit}}</text>
+        <view class="metric-value-row" wx:if="{{!item.isDual}}">
+          <text class="metric-value">{{item.value}}</text>
+          <text class="metric-unit">{{item.unit}}</text>
+        </view>
+        <view class="metric-dual-block" wx:if="{{item.isDual}}">
+          <view class="metric-dual-row">
+            <text class="metric-dual-label">{{item.primaryLabel}}</text>
+            <view class="metric-dual-value-row">
+              <text class="metric-dual-value">{{item.primaryValue}}</text>
+              <text class="metric-dual-unit">{{item.primaryUnit}}</text>
+            </view>
+          </view>
+          <view class="metric-dual-row">
+            <text class="metric-dual-label">{{item.secondaryLabel}}</text>
+            <view class="metric-dual-value-row">
+              <text class="metric-dual-value">{{item.secondaryValue}}</text>
+              <text class="metric-dual-unit">{{item.secondaryUnit}}</text>
+            </view>
+          </view>
         </view>
         <text class="metric-desc">{{item.desc}}</text>
         <image class="metric-image" src="{{item.ima}}" mode="aspectFill"></image>
       </view>
-      
     </view>
   </view>
-
+<!--------------宠物姿态展示--------------->
   <view class="section">
     <view class="section-head">
-      <text class="section-title">概览信息</text>
-      <text class="section-desc">先放常用状态，后面方便继续加模块</text>
+      <text class="section-title">宠物姿态</text>
     </view>
-    <view class="overview-list">
-      <view class="overview-card" wx:for="{{highlights}}" wx:key="title">
-        <view class="overview-top">
-          <text class="overview-title">{{item.title}}</text>
-          <text class="overview-tag">{{item.tag}}</text>
+    <view class="posture-list">
+      <view class="posture-summary-card">
+        <view class="posture-summary-top">
+          <text class="posture-summary-title">{{postureInfo.title}}</text>
+          <text class="posture-summary-tag">{{postureInfo.tag}}</text>
         </view>
-        <text class="overview-value">{{item.value}}</text>
-        <text class="overview-detail">{{item.detail}}</text>
+        <text class="posture-summary-value">{{postureInfo.value}}</text>
+        <text class="posture-summary-detail">{{postureInfo.detail}}</text>
+      </view>
+
+      <view class="posture-grid">
+        <view class="posture-card {{item.active ? 'posture-card-active' : ''}}" wx:for="{{postureInfo.cards}}" wx:key="key">
+          <image class="posture-icon" src="{{item.icon}}" mode="aspectFill"></image>
+          <text class="posture-card-title">{{item.label}}</text>
+          <text class="posture-card-desc">{{item.desc}}</text>
+        </view>
       </view>
     </view>
   </view>
-
+<!--------------宠物位置信息--------------->
   <view class="section">
     <view class="section-head">
-      <text class="section-title">预留模块</text>
-      <text class="section-desc">为后续统计、预警和设备联动留位置</text>
+      <text class="section-title">宠物位置信息</text>
     </view>
-    <view class="module-list">
-      <view class="module-card" wx:for="{{modules}}" wx:key="title">
-        <image class="module-image" src="{{petProfile.avatar}}" mode="aspectFill"></image>
-        <view class="module-copy">
-          <text class="module-title">{{item.title}}</text>
-          <text class="module-detail">{{item.detail}}</text>
-        </view>
-      </view>
+    <view class="map-card">
+      <text class="map-detail">{{locationInfo.detail}}</text>
+      <map
+        class="gps-map"
+        longitude="{{locationInfo.longitude}}"
+        latitude="{{locationInfo.latitude}}"
+        scale="{{locationInfo.scale}}"
+        markers="{{locationInfo.markers}}"
+        show-location="true"
+      ></map>
     </view>
   </view>
 </view>
