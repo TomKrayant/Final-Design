@@ -10,3 +10,8 @@
 *.pdf binary
 *.rar binary
 *.zip binary
+
+# 第三方库不计入仓库语言统计
+# ec-canvas 为 ECharts 官方提供的小程序适配层，内含打包后的 echarts.js（约 1.9 MB）
+# 不标记的话，它会独占整个仓库语言统计的 96%，把主语言误判成 JavaScript
+miniprogram/ec-canvas/** linguist-vendored
