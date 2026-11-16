@@ -1,0 +1,90 @@
+/* pages/login/login.wxss */
+.login-page {
+  min-height: 100vh;
+  padding: 36rpx 24rpx 48rpx;
+  background: linear-gradient(180deg, #eef8f4 0%, #f7fbfa 48%, #f2f6f5 100%);
+  box-sizing: border-box;
+}
+
+.login-hero {
+  padding: 24rpx 6rpx 18rpx;
+}
+
+.hero-eyebrow {
+  display: block;
+  color: #5f7773;
+  font-size: 24rpx;
+}
+
+.hero-title {
+  display: block;
+  margin-top: 12rpx;
+  color: #1f3532;
+  font-size: 48rpx;
+  font-weight: 700;
+}
+
+.hero-desc {
+  display: block;
+  margin-top: 16rpx;
+  color: #6d807c;
+  font-size: 24rpx;
+  line-height: 1.7;
+}
+
+.login-card {
+  margin-top: 20rpx;
+  padding: 36rpx 30rpx;
+  border-radius: 32rpx;
+  background: #ffffff;
+  box-shadow: 0 14rpx 32rpx rgba(27, 54, 50, 0.08);
+  text-align: center;
+}
+
+.login-image {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 32rpx;
+}
+
+.login-title {
+  display: block;
+  margin-top: 28rpx;
+  color: #1f3532;
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.login-desc {
+  display: block;
+  margin-top: 16rpx;
+  color: #72837f;
+  font-size: 24rpx;
+  line-height: 1.7;
+}
+
+.login-btn {
+  margin-top: 36rpx;
+  height: 88rpx;
+  border-radius: 999rpx;
+  background: linear-gradient(135deg, #1f5f5b 0%, #3a8d80 100%);
+  color: #ffffff;
+  font-size: 30rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.login-tip {
+  display: block;
+  margin-top: 24rpx;
+  color: #8a9896;
+  font-size: 22rpx;
+  line-height: 1.6;
+}
+
+.login-btn::after {
+  border: none;
+}
